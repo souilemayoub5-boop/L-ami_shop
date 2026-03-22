@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>L'ami Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f1f1f1;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .brand {
+      font-size: 26px;
+      font-weight: bold;
+      color: #2a9d8f;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    .title {
+      font-size: 20px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    .price {
+      font-size: 28px;
+      color: #e63946;
+      font-weight: bold;
+    }
+
+    .old {
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    .features {
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    .features p {
+      margin: 6px 0;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: block;
+      background: #25D366;
+      color: white;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="brand">🔥 L'ami Shop 👟</div>
+
+  <img src="https://raw.githubusercontent.com/souilemayoub5-boop/L-ami_shop/main/image1.png">
+
+  <div class="title">سبرديلة عصرية ومريحة 🔥</div>
+
+  <div class="old">299 درهم</div>
+  <div class="price">199 درهم فقط</div>
+
+  <div class="features">
+    <p>✅ توصيل لجميع المدن</p>
+    <p>✅ الدفع عند الاستلام</p>
+    <p>✅ جودة عالية</p>
+  </div>
+
+  <!-- فورم -->
+  <input type="text" id="name" placeholder="الاسم الكامل">
+  <input type="text" id="phone" placeholder="رقم الهاتف">
+  <input type="text" id="address" placeholder="العنوان">
+
+  <select id="size">
+    <option value="">اختار المقاس</option>
+    <option>40</option>
+    <option>41</option>
+    <option>42</option>
+    <option>43</option>
+    <option>44</option>
+  </select>
+
+  <button class="btn" onclick="sendOrder()">
+    🟢 تأكيد الطلب عبر واتساب
+  </button>
+
+</div>
+
+<script>
+function sendOrder() {
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let address = document.getElementById("address").value;
+  let size = document.getElementById("size").value;
+
+  if (!name || !phone || !address || !size) {
+    alert("⚠️ عافاك عمّر جميع المعلومات");
+    return;
+  }
+
+  let message = 
+  "طلب جديد:%0A" +
+  "الاسم: " + name + "%0A" +
+  "الهاتف: " + phone + "%0A" +
+  "العنوان: " + address + "%0A" +
+  "المقاس: " + size + "%0A" +
+  "المنتج: سبرديلة - 199 درهم";
+
+  window.open("https://wa.me/212708232451?text=" + message);
+}
+</script>
+
+</body>
+</html>
