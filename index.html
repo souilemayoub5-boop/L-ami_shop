@@ -1,131 +1,207 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>L'ami Shop</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'ami Shop</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f1f1f1;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f5f5f5;
+}
 
-    .container {
-      max-width: 420px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      margin-top: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
+.container {
+  max-width: 420px;
+  margin: auto;
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
 
-    .brand {
-      font-size: 26px;
-      font-weight: bold;
-      color: #2a9d8f;
-    }
+.brand {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2a9d8f;
+}
 
-    img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 15px;
-    }
+.slider img {
+  width: 100%;
+  border-radius: 12px;
+}
 
-    .title {
-      font-size: 20px;
-      margin: 10px 0;
-      font-weight: bold;
-    }
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
-    .price {
-      font-size: 28px;
-      color: #e63946;
-      font-weight: bold;
-    }
+.price {
+  font-size: 26px;
+  color: red;
+  font-weight: bold;
+}
 
-    .old {
-      text-decoration: line-through;
-      color: gray;
-    }
+.old {
+  text-decoration: line-through;
+  color: gray;
+}
 
-    .features {
-      text-align: right;
-      margin-top: 15px;
-    }
+.badge {
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
 
-    .features p {
-      margin: 6px 0;
-    }
+.features {
+  margin-top: 10px;
+}
 
-    select, input {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 15px;
-    }
+.features p {
+  margin: 5px 0;
+}
 
-    .btn {
-      display: block;
-      background: #25D366;
-      color: white;
-      padding: 15px;
-      margin-top: 15px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      border: none;
-    }
+.review {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-align: right;
+}
 
-  </style>
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
+}
+
+.urgent {
+  color: red;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.stock {
+  color: #e63946;
+  font-weight: bold;
+}
+
+.timer {
+  background: black;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <div class="brand">🔥 L'ami Shop 👟</div>
+<div class="brand">🔥 L'ami Shop 👟</div>
 
-  <img src="https://raw.githubusercontent.com/souilemayoub5-boop/L-ami_shop/main/image1.png">
+<!-- الصور -->
+<div class="slider">
+  <img id="productImage" src="IMG_20260309_121327_888.jpg">
+</div>
 
-  <div class="title">سبرديلة عصرية ومريحة 🔥</div>
+<div style="text-align:center; margin-top:10px;">
+  <button onclick="changeImage(1)">1</button>
+  <button onclick="changeImage(2)">2</button>
+</div>
 
-  <div class="old">299 درهم</div>
-  <div class="price">199 درهم فقط</div>
+<div class="title">سبرديلة عصرية ومريحة 🔥</div>
 
-  <div class="features">
-    <p>✅ توصيل لجميع المدن</p>
-    <p>✅ الدفع عند الاستلام</p>
-    <p>✅ جودة عالية</p>
-  </div>
+<div class="old">299 درهم</div>
+<div class="price">199 درهم فقط <span class="badge">-30%</span></div>
 
-  <!-- فورم -->
-  <input type="text" id="name" placeholder="الاسم الكامل">
-  <input type="text" id="phone" placeholder="رقم الهاتف">
-  <input type="text" id="address" placeholder="العنوان">
+<div class="urgent">⏳ العرض غادي يسالي اليوم!</div>
+<div class="stock">⚠️ باقي غير 5 قطع!</div>
 
-  <select id="size">
-    <option value="">اختار المقاس</option>
-    <option>40</option>
-    <option>41</option>
-    <option>42</option>
-    <option>43</option>
-    <option>44</option>
-  </select>
+<div class="timer" id="timer">⏰ 10:00</div>
 
-  <button class="btn" onclick="sendOrder()">
-    🟢 تأكيد الطلب عبر واتساب
-  </button>
+<div class="features">
+  <p>🚚 توصيل لجميع المدن</p>
+  <p>💰 الدفع عند الاستلام</p>
+  <p>⭐ جودة عالية</p>
+</div>
+
+<!-- Reviews -->
+<div class="review">⭐⭐⭐⭐⭐ "زوينة بزاف و مريحة" - سارة</div>
+<div class="review">⭐⭐⭐⭐⭐ "وصلاتني فنهار واحد 👍" - أمين</div>
+<div class="review">⭐⭐⭐⭐⭐ "نفس الصورة و الجودة عالية" - ياسين</div>
+
+<input type="text" id="name" placeholder="الاسم الكامل">
+<input type="text" id="phone" placeholder="رقم الهاتف">
+<input type="text" id="address" placeholder="العنوان">
+
+<select id="size">
+  <option value="">اختار المقاس</option>
+  <option>40</option>
+  <option>41</option>
+  <option>42</option>
+  <option>43</option>
+  <option>44</option>
+</select>
+
+<button class="btn" onclick="sendOrder()">🟢 تأكيد الطلب عبر واتساب</button>
 
 </div>
 
 <script>
+// تبديل الصور
+function changeImage(num) {
+  let img = document.getElementById("productImage");
+
+  if(num == 1){
+    img.src = "IMG_20260309_121327_888.jpg";
+  }
+  if(num == 2){
+    img.src = "IMG_20260309_121328_042.jpg";
+  }
+}
+
+// Timer
+let time = 600;
+setInterval(() => {
+  let minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+  document.getElementById("timer").innerHTML =
+  "⏰ " + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  if(time > 0) time--;
+}, 1000);
+
+// إرسال الطلب
 function sendOrder() {
   let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
@@ -137,13 +213,15 @@ function sendOrder() {
     return;
   }
 
-  let message = 
-  "طلب جديد:%0A" +
-  "الاسم: " + name + "%0A" +
-  "الهاتف: " + phone + "%0A" +
-  "العنوان: " + address + "%0A" +
-  "المقاس: " + size + "%0A" +
-  "المنتج: سبرديلة - 199 درهم";
+  let message =
+  "🔥 طلب جديد من الموقع 🔥%0A%0A" +
+  "👤 الاسم: " + name + "%0A" +
+  "📞 الهاتف: " + phone + "%0A" +
+  "📍 العنوان: " + address + "%0A" +
+  "👟 المقاس: " + size + "%0A%0A" +
+  "🛍️ المنتج: سبرديلة%0A" +
+  "💰 الثمن: 199 درهم%0A%0A" +
+  "🚀 المرجو تأكيد الطلب بسرعة";
 
   window.open("https://wa.me/212708232451?text=" + message);
 }
@@ -151,3 +229,4 @@ function sendOrder() {
 
 </body>
 </html>
+    
